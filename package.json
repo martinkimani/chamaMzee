@@ -1,21 +1,25 @@
 {
-    "name": "chamaz",
-    "description": "",
-    "version": "0.0.1",
-    "main": "./chamaz.js",
-    "author": {
-        "name": "martin",
-        "email": "you@email.example"
-    },
-    "keywords": [],
-    "licenses": {
-        "type": "none"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/YOUR_LOGIN/chamaz.git"
-    },
-    "bugs": {
-        "url": "http://github.com/YOUR_LOGIN/chamaz/issues"
-    }
+  "name": "chamaz",
+  "description": "",
+  "version": "0.0.1",
+  "main": "./chamaz.js",
+  "author": {
+    "name": "martin",
+    "email": "you@email.example"
+  },
+  "keywords": [],
+  "licenses": {
+    "type": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/YOUR_LOGIN/chamaz.git"
+  },
+  "bugs": {
+    "url": "http://github.com/YOUR_LOGIN/chamaz/issues"
+  },
+  "dependencies": {
+    "express": "~4.13.3",
+    "jade": "~1.11.0"
+  }
 }
