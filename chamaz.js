@@ -33,8 +33,10 @@ var router = express.Router();
 // Landing page route
 router.get('/', homeController.index);
 
+//router.get('/user/:user');
+
 // Register all our routes
 app.use(router);
 
 // Start the server
-app.listen(3000);
+app.listen(9999);
