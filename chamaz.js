@@ -10,6 +10,7 @@ var path = require('path');
 var secrets = require('./config/secrets');
 var mongoose = require('mongoose');
 
+
 // Connect to the chamaz MongoDB
 mongoose.connect(secrets.db);
 
@@ -32,6 +33,11 @@ var router = express.Router();
 
 // Landing page route
 router.get('/', homeController.index);
+router.post('/api/user', homeController.addUser);
+router.get('/api/user', homeController.users);
+router.get('/api/user/:user_id', homeController.getUser);
+router.put('/api/user/:user_id', homeController.updateUser);
+
 
 // Register all our routes
 app.use(router);
