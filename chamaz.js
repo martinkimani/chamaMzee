@@ -39,8 +39,10 @@ router.get('/api/user/:user_id', homeController.getUser);
 router.put('/api/user/:user_id', homeController.updateUser);
 
 
+//router.get('/user/:user');
+
 // Register all our routes
 app.use(router);
 
 // Start the server
-app.listen(3000);
+app.listen(9999);
