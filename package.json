@@ -23,6 +23,9 @@
     "jade": "~1.11.0",
     "mongoose": "~4.3.4",
     "body-parser": "~1.14.2",
-    "express-validator": "~2.19.0"
+    "express-validator": "~2.19.0",
+    "cookie-parser": "~1.4.1",
+    "express-session": "~1.13.0",
+    "connect-memcached": "~0.1.0"
   }
 }

@@ -32,7 +32,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `chamadb`.`group`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `chamadb`.`group` (
+CREATE TABLE IF NOT EXISTS `chamadb`.`groups` (
   `group_id` INT NOT NULL,
   `group_name` VARCHAR(45) NULL,
   `password` VARCHAR(255) NULL,
@@ -63,12 +63,12 @@ CREATE TABLE IF NOT EXISTS `chamadb`.`group_user` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_group_user_2`
     FOREIGN KEY (`group_id`)
-    REFERENCES `chamadb`.`group` (`group_id`)
+    REFERENCES `chamadb`.`groups` (`group_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_group_user_3`
     FOREIGN KEY (`group_name`)
-    REFERENCES `chamadb`.`group` (`group_name`)
+    REFERENCES `chamadb`.`groups` (`group_name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `chamadb`.`savings` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_savings_2`
     FOREIGN KEY (`group_id`)
-    REFERENCES `chamadb`.`group` (`group_id`)
+    REFERENCES `chamadb`.`groups` (`group_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `chamadb`.`loans` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_loans_2`
     FOREIGN KEY (`group_id`)
-    REFERENCES `chamadb`.`group` (`group_id`)
+    REFERENCES `chamadb`.`groups` (`group_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `chamadb`.`loans_payment` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_loans_payment_3`
     FOREIGN KEY (`group_id`)
-    REFERENCES `chamadb`.`group` (`group_id`)
+    REFERENCES `chamadb`.`groups` (`group_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -181,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `chamadb`.`Advances` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Advances_2`
     FOREIGN KEY (`group_id`)
-    REFERENCES `chamadb`.`group` (`group_id`)
+    REFERENCES `chamadb`.`groups` (`group_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -208,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `chamadb`.`Advance_payments` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Advance_payments_2`
     FOREIGN KEY (`group_id`)
-    REFERENCES `chamadb`.`group` (`group_id`)
+    REFERENCES `chamadb`.`groups` (`group_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Advance_payments_3`
@@ -234,7 +234,7 @@ CREATE TABLE IF NOT EXISTS `chamadb`.`Projects` (
   INDEX `fk_Projects_2_idx` (`user_id` ASC),
   CONSTRAINT `fk_Projects_1`
     FOREIGN KEY (`group_id`)
-    REFERENCES `chamadb`.`group` (`group_id`)
+    REFERENCES `chamadb`.`groups` (`group_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Projects_2`
@@ -259,7 +259,7 @@ CREATE TABLE IF NOT EXISTS `chamadb`.`fines` (
   INDEX `fk_fines_2_idx` (`user_id` ASC),
   CONSTRAINT `fk_fines_1`
     FOREIGN KEY (`group_id`)
-    REFERENCES `chamadb`.`group` (`group_id`)
+    REFERENCES `chamadb`.`groups` (`group_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_fines_2`
