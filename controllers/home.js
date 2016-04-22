@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//var db_conn = require('./utils/helpers');
+var db_conn = require('../config/connection');
 var mysql = require('mysql');
 var path = require('path');
 
@@ -19,23 +19,23 @@ exports.index = function(req, res) {
   res.sendFile(path.join(__dirname, '..', 'index.html'));
 };
 
-exports.users = function(req, res){
-    pool.getConnection(function(err,connection){
+exports.users = function (req, res) {
+    db_conn.dbConnection(function (conn) {
         var sql_query = 'select user_id,user_name,status from user';
-        connection.query(sql_query, function(err, rows){
-           
-            if(err){
-                var error = 'could not connect to the db '+err;
+        conn.query(sql_query, function (err, rows) {
+            conn.release();
+            if (err) {
+                var error = 'could not connect to the db ' + err;
                 console.log(error);
                 res.send(error);
-            }else{
+            } else {
                 console.log('connection up');
                 res.send(rows);
             }
         });
-        
-        connection.release();
+
     });
+
 };
 
 exports.addUser = function(req, res){
