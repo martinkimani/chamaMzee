@@ -13,6 +13,7 @@ var expressValidator = require('express-validator');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var MemcachedStore = require('connect-memcached')(session);
+var routes = require('./routes');
 
 // Create our Express application
 var app = express();
@@ -30,6 +31,8 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.use(cookieParser());
 app.use(session({
       secret  : 'CatOnKeyboard'
+    , resave: true,
+      saveUninitialized: true
     , key     : 'test'
     , proxy   : 'true'
     , store   : new MemcachedStore({
@@ -37,8 +40,9 @@ app.use(session({
     })
 }));
 
-// Load controllers
-var homeController = require('./controllers/home');
+
+
+
 
 // Add static middleware
 var oneDay = 86400000;
@@ -46,22 +50,28 @@ app.use('/assets',express.static(__dirname + '/assets', { maxAge: oneDay }));
 app.use('/templates',express.static(__dirname + '/templates', { maxAge: oneDay }));
 
 // Add jade view engine
-//app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+// restrict 
+function restrict(req, res, next) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+  if (req.session.user) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+    next();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+  } else {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+    req.session.error = 'Access denied!';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+    //res.sendFile(path.join(__dirname, 'index.html')); 
+    res.sendFile(path.join(__dirname, 'index.html'));
+  }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+}
+
 
 // Create our Express router
-var router = express.Router();
+routes(app);
 
-// Landing page route
-router.get('/', homeController.index);
-router.post('/api/user', homeController.addUser);
-router.get('/api/users', homeController.users);
-router.get('/api/user/:user_id', homeController.getUser);
-router.put('/api/user/:user_id', homeController.updateUser);
-router.post('/api/login', homeController.loginUser);
+
 
 // Register all our routes
-app.use(router);
+//app.use(router);
 
 // Start the server
 app.listen(9999);

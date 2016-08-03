@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <% include ../partials/head %>
+
+</head>
+
+<body class="footer-top-dark">
+
+<div id="page">
+    <div id="header-wrapper">
+
+       <% include ../partials/header %>
+
+    </div><!-- /#header-wrapper -->
+
+
+<!-- / ------------------------------------------------------------------------------------ / -->
+    
+    <div id="main-wrapper">
+        <div id="main">
+            <div id="main-inner"><div class="breadcrumb-wrapper">
+    <div class="container">
+        <!--<ol class="breadcrumb pull-left">
+            <li><a href="#">Vivamus</a></li>
+            <li><a href="#">Proin era</a></li>
+            <li class="active">Fusce accumsan</li>
+        </ol><!-- /.breadcrumb -->
+
+    </div><!-- /.container -->
+</div><!-- /.breadcrumb-wrapper -->
+<div class="container">
+	<div class="block-content">
+    	<div class="block-content-inner clearfix">
+			<div class="page-header page-header-no-rules center">
+				<h1>Login</h1>
+			</div><!-- /.page-header -->
+
+			<div class="col-sm-4 col-sm-offset-4">
+                            <ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
+  <li><a href="#reg" data-toggle="tab" style="padding: 15px 35px;">Register</a></li>
+</ul>
+                         
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active in" id="login">
+      <form name="login-form">
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" id="login-form-user_id" autofocus class="form-control" required>
+        </div><!-- /.form-group -->
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="login-form-password" class="form-control" required>
+        </div><!-- /.form-group -->
+
+        <div class="form-group">
+            <input type="button" value="Login" class="btn btn-primary" onclick="javascript:loginSubmit('login-form');">
+            <a class="pull-right" href="/userGroups">Forgot Password</a>
+        </div><!-- /.form-group -->
+    </form>
+      
+  </div>
+
+  <div class="tab-pane fade " id="reg">
+      <form name="register-form">
+            <div class="form-group">
+                <label>Phone number</label>
+                <input type="text" class="form-control" required>
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" required>
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+                <label>Surname</label>
+                <input type="text" class="form-control" required>
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" required>
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" class="form-control" required>
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+                <input type="submit" value="Register" class="btn btn-primary">
+            </div><!-- /.form-group -->
+        </form>
+  </div>
+    <div class="alert alert-danger" role="alert" style="display: none;"></div>
+    
+</div>
+    
+</div>	    </div><!-- /.block-content-inner -->
+	</div><!-- /.block-content -->
+	<div class="block-content background-primary background-image-center fullwidth" data-background-image="../../assets/img/tmp/automotive/support.jpg">
+    <div class="block-content-inner">
+        <h2 class="no-margin"><strong>Questions?</strong> Contact our support.
+            <a href="#" class="btn btn-secondary pull-right btn-uppercase">Contact Now</a>
+        </h2>
+    </div><!-- /.block-content-inner -->
+</div><!-- /.block-content -->
+</div><!-- /.container -->
+
+            </div><!-- /#main-inner -->
+        </div><!-- /#main -->
+    </div><!-- /#main-wrapper -->
+
+
+
+
+
+    
+<!-- / ------------------------------------------------------------------------------------ / -->    
+    <div id="footer-wrapper">
+
+       <% include ../partials/footer %>
+
+    </div><!-- /#footer-wrapper -->
+</div><!-- /#page -->
+
+
+<% include ../partials/scripts %>
+
+</body>
+</html>

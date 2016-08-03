@@ -26,6 +26,9 @@
     "express-validator": "~2.19.0",
     "cookie-parser": "~1.4.1",
     "express-session": "~1.13.0",
-    "connect-memcached": "~0.1.0"
+    "connect-memcached": "~0.1.0",
+    "passport": "~0.3.2",
+    "passport-local": "~1.0.0",
+    "ejs": "~2.4.2"
   }
 }
